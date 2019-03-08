@@ -35,12 +35,15 @@ public:
 	glm::vec2 getVelocity() const { return m_velocity; }
 	void setVelocity(glm::vec2 pVelocity) { m_velocity = pVelocity; }
 	
-	float getMass() const { return m_mass; }
+	float getMass() const { return (m_isKinematic) ? INT_MAX : m_mass; }
 	void setMass(float pMass) { m_mass = pMass; }
 
 	float getLinearDrag() { return m_linearDrag; }
 
 	float getElasticity() { return m_elasticity; }
+
+	void setKinematic(bool state) { m_isKinematic = state; }
+	bool isKinematic() { return m_isKinematic; }
 
 protected:
 	glm::vec2 m_position;
@@ -55,5 +58,7 @@ protected:
 	float m_angularDrag;
 	
 	float m_elasticity;
+
+	bool m_isKinematic;
 };
 

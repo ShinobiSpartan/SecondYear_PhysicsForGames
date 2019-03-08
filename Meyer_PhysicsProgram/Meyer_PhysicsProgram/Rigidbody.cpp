@@ -7,6 +7,7 @@ m_position(position), m_velocity(velocity), m_rotation(rotation), m_mass(mass)
 	m_linearDrag = 0.02f;
 	m_elasticity = 1.0f;
 	m_angularVelocity = 0.0f;
+	m_isKinematic = false;
 }
 
 Rigidbody::~Rigidbody()
@@ -15,6 +16,9 @@ Rigidbody::~Rigidbody()
 
 void Rigidbody::fixedUpdate(glm::vec2 gravity, float timeStep)
 {
+	if (m_isKinematic)
+		return;
+
 	m_velocity += gravity * timeStep;
 	m_position += m_velocity * timeStep;
 
