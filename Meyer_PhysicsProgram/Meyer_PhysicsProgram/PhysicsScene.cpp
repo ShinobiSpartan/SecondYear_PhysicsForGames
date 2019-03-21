@@ -134,7 +134,6 @@ bool PhysicsScene::circle2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 			circleToPlane *= -1;
 		}
 
-
 		float intersection = circle->getRadius() - circleToPlane;
 		if (intersection > 0)
 		{

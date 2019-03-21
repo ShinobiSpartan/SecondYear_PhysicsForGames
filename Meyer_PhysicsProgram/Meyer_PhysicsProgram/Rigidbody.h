@@ -14,7 +14,7 @@
 class Rigidbody : public PhysicsObject
 {
 public:
-	Rigidbody(ShapeType shapeID, glm::vec2 position, glm::vec2 velocity, float rotation, float mass, float moment);
+	Rigidbody(ShapeType shapeID, glm::vec2 position, glm::vec2 velocity, float rotation, float mass, float moment, bool isKinematic);
 	~Rigidbody();
 
 	virtual void fixedUpdate(glm::vec2 gravity, float timeStep);
@@ -59,6 +59,6 @@ protected:
 	
 	float m_elasticity;
 
-	bool m_isKinematic;
+	bool m_isKinematic = false;
 };
 

@@ -1,13 +1,12 @@
 #include "Rigidbody.h"
 
-Rigidbody::Rigidbody(ShapeType shapeID, glm::vec2 position, glm::vec2 velocity, float rotation, float mass, float moment) : PhysicsObject(shapeID),
-m_position(position), m_velocity(velocity), m_rotation(rotation), m_mass(mass)
+Rigidbody::Rigidbody(ShapeType shapeID, glm::vec2 position, glm::vec2 velocity, float rotation, float mass, float moment, bool isKinematic) 
+		:	PhysicsObject(shapeID), m_position(position), m_velocity(velocity), m_rotation(rotation), m_mass(mass), m_isKinematic(isKinematic)
 {
 	m_rotation = 0;
 	m_linearDrag = 0.02f;
 	m_elasticity = 1.0f;
 	m_angularVelocity = 0.0f;
-	m_isKinematic = false;
 }
 
 Rigidbody::~Rigidbody()
