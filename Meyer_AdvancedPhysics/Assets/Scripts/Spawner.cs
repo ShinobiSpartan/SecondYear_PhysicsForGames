@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if( Input.anyKeyDown == true && timer >= 0.3f)
+        if( Input.GetKey(KeyCode.Space) == true && timer >= 0.3f)
         {
             Instantiate(prefab, transform.position, Quaternion.identity);
             timer = 0;

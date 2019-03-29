@@ -5,7 +5,34 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Scenes/01 Bounce Scene.unity
+    guid: 7993c6f2d58516542b3f22dee7a60088
+  - enabled: 1
+    path: Assets/_Scenes/02 Wall Scene.unity
+    guid: 2ab23aedf10c17b42b0f27b865ab9827
+  - enabled: 1
+    path: Assets/_Scenes/03 Collision Shape Hierarchies Scene.unity
+    guid: 3293e107c840a0b4380896cdef6ee3ef
+  - enabled: 1
+    path: Assets/_Scenes/04 Mesh Based Collision Detection.unity
+    guid: f2ed1c18e5e143c4e9a403750357bd94
+  - enabled: 1
+    path: Assets/_Scenes/04a Mesh Based Collision - Terrain.unity
+    guid: 32c4812ce9240e646a15045e0e190cc4
+  - enabled: 1
+    path: Assets/_Scenes/05 Ragdoll Physics.unity
+    guid: e6d749bc9892c864f9ed3d81dea47d52
+  - enabled: 1
+    path: Assets/_Scenes/06 Kinematics and Player Controllers.unity
+    guid: 1806575a27e0e6f4d9ca4bf22cc7c20a
+  - enabled: 1
+    path: Assets/_Scenes/07 Joints and Springs.unity
+    guid: f76ddd2ed3a9c2a41a6d0514a70e34b8
+  - enabled: 1
+    path: Assets/_Scenes/08 Raycasting.unity
+    guid: 94d440713b9052548b7d9f884cce6309
   m_configObjects: {}
