@@ -181,7 +181,11 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 	// If we are successful then test for collision
 	if (!(box == nullptr || plane == nullptr))
 	{
+		glm::vec2 boxMin(	box->getPosition().x - (box->getExtents().x * 0.5f),
+							box->getPosition().y - (box->getExtents().y * 0.5f)		);
 
+		glm::vec2 boxMax(	box->getPosition().x + (box->getExtents().x * 0.5f),
+							box->getPosition().y + (box->getExtents().y * 0.5f)		);
 
 	}
 	return false;
@@ -195,7 +199,11 @@ bool PhysicsScene::rect2Circle(PhysicsObject * obj1, PhysicsObject * obj2)
 	// If we are successful then test for collision
 	if (!(box == nullptr || circle == nullptr))
 	{
+		glm::vec2 boxMin(	box->getPosition().x - (box->getExtents().x * 0.5f),
+							box->getPosition().y - (box->getExtents().y * 0.5f)		);
 
+		glm::vec2 boxMax(	box->getPosition().x + (box->getExtents().x * 0.5f),
+							box->getPosition().y + (box->getExtents().y * 0.5f)		);
 	}
 
 	return false;
