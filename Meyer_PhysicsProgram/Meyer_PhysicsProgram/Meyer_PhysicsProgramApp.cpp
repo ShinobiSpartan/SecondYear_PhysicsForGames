@@ -28,9 +28,9 @@ bool Meyer_PhysicsProgramApp::startup() {
 	// m_physicsScene->addActor(m_rocket);
 
 	// Drawing the walls of the simulation
-	m_physicsScene->addActor(new Plane(glm::vec2(0, 1), 55.f));
+	m_physicsScene->addActor(new Plane(glm::vec2(0, -1), -55.f));
 	m_physicsScene->addActor(new Plane(glm::vec2(0, 1), -55.f));
-	m_physicsScene->addActor(new Plane(glm::vec2(1, 0), 95.f));
+	m_physicsScene->addActor(new Plane(glm::vec2(-1, 0), -95.f));
 	m_physicsScene->addActor(new Plane(glm::vec2(1, 0), -95.f));
 
 	// Diagonal Line
@@ -39,9 +39,10 @@ bool Meyer_PhysicsProgramApp::startup() {
 	// Drawing the balls
 	//m_physicsScene->addActor(new Circle(glm::vec2(50, -30), glm::vec2(-30, 0), 5, 5, glm::vec4(1, 0, 1, 1), false));
 	//m_physicsScene->addActor(new Circle(glm::vec2(30, -30), glm::vec2(-10, 0), 5, 5, glm::vec4(1, 0, 0, 1), false));
+	//m_physicsScene->addActor(new Circle(glm::vec2(-20, 0), glm::vec2(10, -3), 5, 5, glm::vec4(1, 0.5, 0.5, 1), false));
 
 	// Drawing the box
-	m_physicsScene->addActor(new Box(glm::vec2(-20, 1), glm::vec2(10, 0), 5, glm::vec2(5, 5), glm::vec4(1, 0, 1, 1), false));
+	m_physicsScene->addActor(new Box(glm::vec2(-20, 0), glm::vec2(10, 0), 5, glm::vec2(5, 5), glm::vec4(1, 0, 1, 1), false));
 	m_physicsScene->addActor(new Box(glm::vec2(20, 0), glm::vec2(-10, 0), 5, glm::vec2(5, 5), glm::vec4(0, 0, 1, 1), false));
 
 	return true;
