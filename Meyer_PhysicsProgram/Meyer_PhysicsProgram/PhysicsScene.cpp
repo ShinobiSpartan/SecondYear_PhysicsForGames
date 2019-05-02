@@ -99,7 +99,7 @@ void PhysicsScene::checkForCollision()
 }
 
 
-/// Plane Interactions
+/* Plane Interactions */
 bool PhysicsScene::plane2Plane(PhysicsObject *, PhysicsObject *)
 {
 	return false;
@@ -115,7 +115,7 @@ bool PhysicsScene::plane2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 	return rect2Plane(obj2, obj1);
 }
 
-/// Circle Interactions
+/* Circle Interactions */
 bool PhysicsScene::circle2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 {
 	Circle *circle = dynamic_cast<Circle*>(obj1);
@@ -172,7 +172,7 @@ bool PhysicsScene::circle2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 	return rect2Circle(obj2, obj1);
 }
 
-/// Rectangle Interactions
+/* Rectangle Interactions */
 bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 {
 	// Try to cast objects to Box and Plane
@@ -182,22 +182,25 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 	if (!(box == nullptr || plane == nullptr))
 	{
 		glm::vec2 planeNormal = plane->getNormal();
-		// glm::vec2 restitution;
 
 		// v1	 v2
 		//	  []
 		// v4	 v3
 
+		// v1
 		glm::vec2 v1(box->getExtents().x * -0.5f, box->getExtents().y * 0.5f);
-		glm::vec2 v2(box->getExtents().x * 0.5f, box->getExtents().y * 0.5f);
-		glm::vec2 v3(box->getExtents().x * 0.5f, box->getExtents().y * -0.5f);
-		glm::vec2 v4(box->getExtents().x * -0.5f, box->getExtents().y * -0.5f);
-		
-		float centerToPlane = glm::dot(box->getPosition(), plane->getNormal() + plane->getDistance());
-		
 		float v1ToPlane = glm::dot(box->getPosition() + v1, plane->getNormal()) - plane->getDistance();
+
+		// v2
+		glm::vec2 v2(box->getExtents().x * 0.5f, box->getExtents().y * 0.5f);
 		float v2ToPlane = glm::dot(box->getPosition() + v2, plane->getNormal()) - plane->getDistance();
+		
+		// v3
+		glm::vec2 v3(box->getExtents().x * 0.5f, box->getExtents().y * -0.5f);
 		float v3ToPlane = glm::dot(box->getPosition() + v3, plane->getNormal()) - plane->getDistance();
+		
+		// v4
+		glm::vec2 v4(box->getExtents().x * -0.5f, box->getExtents().y * -0.5f);
 		float v4ToPlane = glm::dot(box->getPosition() + v4, plane->getNormal()) - plane->getDistance();
 
 		if (v1ToPlane < 0)
