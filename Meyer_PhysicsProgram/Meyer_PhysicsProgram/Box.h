@@ -4,7 +4,7 @@
 class Box : public Rigidbody
 {
 public:
-	Box(glm::vec2 position, glm::vec2 velocity, float mass, glm::vec2 extents, glm::vec4 colour, bool isKinematic);
+	Box(glm::vec2 position, glm::vec2 velocity, float mass, glm::vec2 extents, glm::vec4 colour);
 	~Box();
 
 	virtual void makeGizmo();

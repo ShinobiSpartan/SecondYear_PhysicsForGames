@@ -159,7 +159,7 @@ bool PhysicsScene::circle2Circle(PhysicsObject* obj1, PhysicsObject* obj2)
 		glm::vec2 dist = circle1->getPosition() - circle2->getPosition();
 		if (glm::length(dist) < circle1->getRadius() + circle2->getRadius())
 		{
-			circle1->resolveCollision(circle2, 0.5f * (circle1->getPosition() + circle2->getPosition()));
+			circle1->resolveCollision(circle2);
 
 			return true;
 		}
@@ -256,9 +256,10 @@ bool PhysicsScene::rect2Circle(PhysicsObject * obj1, PhysicsObject * obj2)
 		glm::vec2 boxClamp = glm::clamp(circle->getPosition(), boxMin, boxMax);
 
 		glm::vec2 dist = boxClamp - circle->getPosition();
+
 		if (glm::length(dist) < circle->getRadius())
 		{
-			box->resolveCollision(circle, 0.5f * (box->getPosition() + circle->getPosition()));
+			box->resolveCollision(circle, &glm::normalize(circle->getPosition() - boxClamp));
 			return true;
 		}
 	}
@@ -305,18 +306,8 @@ bool PhysicsScene::rect2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 			{
 				glm::vec2 collisionNormal = glm::vec2(1, 0);
 
-				if (!box1->isKinematic() && !box2->isKinematic()) {
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
-				else if (!box1->isKinematic())
-				{
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-				}
-				else
-				{
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
+				box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
+				box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
 
 				box1->resolveCollision(box2, &collisionNormal);
 			}
@@ -324,18 +315,8 @@ bool PhysicsScene::rect2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 			{
 				glm::vec2 collisionNormal = glm::vec2(-1, 0);
 
-				if (!box1->isKinematic() && !box2->isKinematic()) {
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
-				else if (!box1->isKinematic())
-				{
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-				}
-				else
-				{
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
+				box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
+				box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
 
 				box1->resolveCollision(box2, &collisionNormal);
 			}
@@ -343,18 +324,8 @@ bool PhysicsScene::rect2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 			{
 				glm::vec2 collisionNormal = glm::vec2(0, 1);
 
-				if (!box1->isKinematic() && !box2->isKinematic()) {
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
-				else if (!box1->isKinematic())
-				{
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-				}
-				else
-				{
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
+				box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
+				box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
 
 				box1->resolveCollision(box2, &collisionNormal);
 			}
@@ -362,18 +333,8 @@ bool PhysicsScene::rect2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 			{
 				glm::vec2 collisionNormal = glm::vec2(0, -1);
 
-				if (!box1->isKinematic() && !box2->isKinematic()) {
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
-				else if (!box1->isKinematic())
-				{
-					box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
-				}
-				else
-				{
-					box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
-				}
+				box1->setPosition(box1->getPosition() + collisionNormal * smallestDist * 0.5f);
+				box2->setPosition(box2->getPosition() - collisionNormal * smallestDist * 0.5f);
 
 				box1->resolveCollision(box2, &collisionNormal);
 			}

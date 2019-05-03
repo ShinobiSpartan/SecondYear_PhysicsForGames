@@ -1,7 +1,7 @@
 #include "Box.h"
 
-Box::Box(glm::vec2 position, glm::vec2 velocity, float mass, glm::vec2 extents, glm::vec4 colour, bool isKinematic) :
-	Rigidbody(RECT, position, velocity, 0, mass, 1, isKinematic), m_extents(extents), m_colour(colour)
+Box::Box(glm::vec2 position, glm::vec2 velocity, float mass, glm::vec2 extents, glm::vec4 colour) :
+	Rigidbody(RECT, position, velocity, 0, mass, 1), m_extents(extents), m_colour(colour)
 {
 }
 

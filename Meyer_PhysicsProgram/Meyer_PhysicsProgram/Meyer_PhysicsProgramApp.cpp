@@ -27,25 +27,26 @@ bool Meyer_PhysicsProgramApp::startup() {
 	// m_rocket = new Circle(glm::vec2(0,-30), glm::vec2(0, 0), 50, 4, glm::vec4(1, 0, 0, 1));
 	// m_physicsScene->addActor(m_rocket);
 
-	// Drawing the walls of the simulation
+	// Draw - Walls 
 	m_physicsScene->addActor(new Plane(glm::vec2(0, -1), -55.f));
 	m_physicsScene->addActor(new Plane(glm::vec2(0, 1), -55.f));
 	m_physicsScene->addActor(new Plane(glm::vec2(-1, 0), -95.f));
 	m_physicsScene->addActor(new Plane(glm::vec2(1, 0), -95.f));
 
-	// Diagonal Line
+	// Diagonal Lines
 	m_physicsScene->addActor(new Plane(glm::normalize(glm::vec2(1, 1)), -40));
 	m_physicsScene->addActor(new Plane(glm::normalize(glm::vec2(-1, -1)), -40));
 
-	// Drawing the balls
-	m_physicsScene->addActor(new Circle(glm::vec2(50, -30), glm::vec2(-30, 5), 5, 5, glm::vec4(1, 1, 1, 1), false));
-	m_physicsScene->addActor(new Circle(glm::vec2(30, -30), glm::vec2(-10, 10), 5, 5, glm::vec4(1, 0, 0, 1), false));
-	m_physicsScene->addActor(new Circle(glm::vec2(-20, 0), glm::vec2(10, -3), 5, 5, glm::vec4(0, 1, 0, 1), false));
+	// Draw - Circles
+	m_physicsScene->addActor(new Circle(glm::vec2(50, -30), glm::vec2(-30, 5), 2, 2, glm::vec4(1, 1, 1, 1)));
+	m_physicsScene->addActor(new Circle(glm::vec2(30, -30), glm::vec2(-10, 10), 5, 5, glm::vec4(1, 0, 0, 1)));
+	m_physicsScene->addActor(new Circle(glm::vec2(-20, 0), glm::vec2(10, -3), 100, 10, glm::vec4(0, 1, 0, 1)));
 
-	// Drawing the box
-	m_physicsScene->addActor(new Box(glm::vec2(40, -30), glm::vec2(10, -10), 5, glm::vec2(10, 10), glm::vec4(1, 0, 1, 1), false));
-	m_physicsScene->addActor(new Box(glm::vec2(20, 0), glm::vec2(-10, 6), 5, glm::vec2(5, 5), glm::vec4(0, 0, 1, 1), false));
-	m_physicsScene->addActor(new Box(glm::vec2(20, 20), glm::vec2(-10, 15), 5, glm::vec2(5, 15), glm::vec4(0, 1, 1, 1), false));
+	// Draw - AABB's
+	m_physicsScene->addActor(new Box(glm::vec2(40, -30), glm::vec2(10, -10), 7.5f, glm::vec2(10, 05), glm::vec4(1, 0, 1, 1)));
+	m_physicsScene->addActor(new Box(glm::vec2(20, 0), glm::vec2(-10, 6), 5, glm::vec2(5, 5), glm::vec4(0, 0, 1, 1)));
+	m_physicsScene->addActor(new Box(glm::vec2(20, 20), glm::vec2(-10, 15), 10, glm::vec2(5, 15), glm::vec4(0, 1, 1, 1)));
+	m_physicsScene->addActor(new Box(glm::vec2(0, 0), glm::vec2(-10, 15), 10, glm::vec2(15, 15), glm::vec4(1, 0, 0, 0.5)));
 
 	return true;
 }
