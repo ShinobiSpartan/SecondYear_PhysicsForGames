@@ -25,7 +25,7 @@ void Plane::makeGizmo()
 	float lineSegmentLength = 300;
 
 	glm::vec2 centerPoint = m_normal * m_distanceToOrigin;
-		// Easy to rotate normal through 90 degrees around z
+	// Easy to rotate normal through 90 degrees around z
 	glm::vec2 parallel(m_normal.y, -m_normal.x);
 
 	glm::vec4 colour(1, 1, 1, 1);
@@ -43,8 +43,8 @@ void Plane::resetPosition()
 void Plane::resolveCollision(Rigidbody * actor2, glm::vec2 contact)
 {
 	float elasticity = actor2->getElasticity();
-	float j =	glm::dot(-(1 + elasticity) * actor2->getVelocity(), m_normal) /
-				(1 / actor2->getMass());
+	float j = glm::dot(-(1 + elasticity) * actor2->getVelocity(), m_normal) /
+		(1 / actor2->getMass());
 
 	glm::vec2 force = m_normal * j;
 

@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-PhysicsScene::PhysicsScene() : m_timeStep(0.01f), m_gravity(0,0)
+PhysicsScene::PhysicsScene() : m_timeStep(0.01f), m_gravity(0, 0)
 {
 }
 
@@ -140,7 +140,7 @@ bool PhysicsScene::circle2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 			circle->setPosition(circle->getPosition() + collisionNormal * intersection);
 
 			glm::vec2 contact = circle->getPosition() + (collisionNormal * -circle->getRadius());
-			
+
 			plane->resolveCollision(circle, contact);
 			return true;
 		}
@@ -194,11 +194,11 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 		// v2
 		glm::vec2 v2(box->getExtents().x * 0.5f, box->getExtents().y * 0.5f);
 		float v2ToPlane = glm::dot(box->getPosition() + v2, plane->getNormal()) - plane->getDistance();
-		
+
 		// v3
 		glm::vec2 v3(box->getExtents().x * 0.5f, box->getExtents().y * -0.5f);
 		float v3ToPlane = glm::dot(box->getPosition() + v3, plane->getNormal()) - plane->getDistance();
-		
+
 		// v4
 		glm::vec2 v4(box->getExtents().x * -0.5f, box->getExtents().y * -0.5f);
 		float v4ToPlane = glm::dot(box->getPosition() + v4, plane->getNormal()) - plane->getDistance();
@@ -208,7 +208,7 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 			box->setPosition(box->getPosition() + planeNormal * (-v1ToPlane));
 			glm::vec2 contact = box->getPosition() + (planeNormal * -v1);
 			plane->resolveCollision(box, contact);
-			
+
 			return true;
 		}
 		if (v2ToPlane < 0)
@@ -216,7 +216,7 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 			box->setPosition(box->getPosition() + planeNormal * (-v2ToPlane));
 			glm::vec2 contact = box->getPosition() + (planeNormal * -v2);
 			plane->resolveCollision(box, contact);
-			
+
 			return true;
 		}
 		if (v3ToPlane < 0)
@@ -224,7 +224,7 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 			box->setPosition(box->getPosition() + planeNormal * (-v3ToPlane));
 			glm::vec2 contact = box->getPosition() + (planeNormal * -v3);
 			plane->resolveCollision(box, contact);
-			
+
 			return true;
 		}
 		if (v4ToPlane < 0)
@@ -232,7 +232,7 @@ bool PhysicsScene::rect2Plane(PhysicsObject * obj1, PhysicsObject * obj2)
 			box->setPosition(box->getPosition() + planeNormal * (-v4ToPlane));
 			glm::vec2 contact = box->getPosition() + (planeNormal * -v4);
 			plane->resolveCollision(box, contact);
-			
+
 			return true;
 		}
 
@@ -248,10 +248,10 @@ bool PhysicsScene::rect2Circle(PhysicsObject * obj1, PhysicsObject * obj2)
 	// If we are successful then test for collision
 	if (!(box == nullptr || circle == nullptr))
 	{
-		glm::vec2 boxMin(	box->getPosition().x - (box->getExtents().x * 0.5f),
-							box->getPosition().y - (box->getExtents().y * 0.5f)		);
-		glm::vec2 boxMax(	box->getPosition().x + (box->getExtents().x * 0.5f),
-							box->getPosition().y + (box->getExtents().y * 0.5f)		);
+		glm::vec2 boxMin(box->getPosition().x - (box->getExtents().x * 0.5f),
+			box->getPosition().y - (box->getExtents().y * 0.5f));
+		glm::vec2 boxMax(box->getPosition().x + (box->getExtents().x * 0.5f),
+			box->getPosition().y + (box->getExtents().y * 0.5f));
 
 		glm::vec2 boxClamp = glm::clamp(circle->getPosition(), boxMin, boxMax);
 
@@ -275,21 +275,21 @@ bool PhysicsScene::rect2Rect(PhysicsObject * obj1, PhysicsObject * obj2)
 	// If we are successful then test for collision
 	if (!(box1 == nullptr || box2 == nullptr))
 	{
-		glm::vec2 box1Min(	box1->getPosition().x - (box1->getExtents().x * 0.5f),
-							box1->getPosition().y - (box1->getExtents().y * 0.5f)	);
-		glm::vec2 box1Max(	box1->getPosition().x + (box1->getExtents().x * 0.5f), 
-							box1->getPosition().y + (box1->getExtents().y * 0.5f)	);
+		glm::vec2 box1Min(box1->getPosition().x - (box1->getExtents().x * 0.5f),
+			box1->getPosition().y - (box1->getExtents().y * 0.5f));
+		glm::vec2 box1Max(box1->getPosition().x + (box1->getExtents().x * 0.5f),
+			box1->getPosition().y + (box1->getExtents().y * 0.5f));
 
-		glm::vec2 box2Min(	box2->getPosition().x - (box2->getExtents().x * 0.5f),
-							box2->getPosition().y - (box2->getExtents().y * 0.5f)	);
-		glm::vec2 box2Max(	box2->getPosition().x + (box2->getExtents().x * 0.5f),
-							box2->getPosition().y + (box2->getExtents().y * 0.5f)	);
+		glm::vec2 box2Min(box2->getPosition().x - (box2->getExtents().x * 0.5f),
+			box2->getPosition().y - (box2->getExtents().y * 0.5f));
+		glm::vec2 box2Max(box2->getPosition().x + (box2->getExtents().x * 0.5f),
+			box2->getPosition().y + (box2->getExtents().y * 0.5f));
 
 		if (!(box1Max.x < box2Min.x || box2Max.x < box1Min.x || box1Max.y < box2Min.y || box2Max.y < box1Min.y))
 		{
 			float x1 = box2Max.x - box1Min.x;
 			float x2 = box1Max.x - box2Min.x;
-			
+
 			float y1 = box2Max.y - box1Min.y;
 			float y2 = box1Max.y - box2Min.y;
 
