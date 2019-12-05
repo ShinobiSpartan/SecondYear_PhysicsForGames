@@ -1,0 +1,12 @@
+﻿  Box.cpp
+  Circle.cpp
+  Meyer_PhysicsProgramApp.cpp
+  main.cpp
+  PhysicsScene.cpp
+c:\users\s173004\desktop\meyer_physicsprogram\meyer_physicsprogram\physicsscene.cpp(76): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Plane.cpp
+  Rigidbody.cpp
+  Generating Code...
+  LINK : C:\Users\s173004\Desktop\Meyer_PhysicsProgram\temp\Meyer_PhysicsProgram\x64\Debug\Meyer_PhysicsProgram.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Meyer_PhysicsProgram.vcxproj -> C:\Users\s173004\Desktop\Meyer_PhysicsProgram\temp\Meyer_PhysicsProgram\x64\Debug\Meyer_PhysicsProgram.exe

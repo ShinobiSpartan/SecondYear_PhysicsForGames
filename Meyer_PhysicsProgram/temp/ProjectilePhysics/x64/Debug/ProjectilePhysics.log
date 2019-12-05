@@ -1,0 +1,3 @@
+﻿  ProjectilePhysicsApp.cpp
+c:\users\s173004\desktop\second year\github\unit 1 - physics for games\meyer_physicsprogram\projectilephysics\projectilephysicsapp.cpp(32): warning C4305: 'initializing': truncation from 'double' to 'float'
+  ProjectilePhysics.vcxproj -> C:\Users\s173004\Desktop\Second Year\Github\Unit 1 - Physics for Games\Meyer_PhysicsProgram\temp\ProjectilePhysics\x64\Debug\ProjectilePhysics.exe
